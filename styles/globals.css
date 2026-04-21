@@ -1,26 +1,87 @@
 @import "tailwindcss";
 
+/* 
+  Tailwind CSS v4 uses a CSS-first configuration.
+  We define our custom theme variables inside the @theme block.
+  This makes the configuration cleaner and more integrated with modern CSS.
+*/
+@theme {
+  /* Primary blue colors for buttons, links, and accents */
+  --color-primary-blue: #2563EB;
+  --color-hover-blue: #1D4ED8;
+  --color-navbar-blue: #0F2B5B;
+  --color-accent-blue: #3B82F6;
+  --color-light-blue-badge: #DBEAFE;
+
+  /* Text colors for different hierarchy levels */
+  --color-text-heading: #0F172A;
+  --color-text-body: #475569;
+  --color-text-secondary: #64748B;
+  --color-text-muted: #94A3B8;
+
+  /* Background colors for different sections and cards */
+  --color-bg-main: #F8FAFC;
+  --color-bg-card: #FFFFFF;
+  --color-bg-section: #F1F5F9;
+
+  /* Custom gradient for prominent UI elements */
+  --background-image-gradient-blue: linear-gradient(90deg, #2563EB, #1D4ED8);
+
+  /* Define standard fonts */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* 
+  Global base styles for the application.
+  Ensures consistent look and feel across all browsers.
+*/
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Set the default background and text colors */
+  background-color: var(--color-bg-main);
+  color: var(--color-text-body);
+  /* Inter font smoothing for better readability */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Base styles for body to ensure it takes full height if needed */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Utility class for the primary gradient background */
+.bg-gradient-blue {
+  background-image: var(--background-image-gradient-blue);
+}
+/* Advanced 3D Hologram utility classes */
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.hologram-glow {
+  box-shadow: 0 0 15px rgba(37, 99, 235, 0.1),
+              0 0 30px rgba(59, 130, 246, 0.05);
+}
+
+.hologram-glow:hover {
+  box-shadow: 0 0 25px rgba(37, 99, 235, 0.25),
+              0 0 50px rgba(6, 182, 212, 0.15);
+}
+
+.hologram-scanlines {
+  background: linear-gradient(
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0) 50%,
+    rgba(37, 99, 235, 0.02) 50%,
+    rgba(37, 99, 235, 0.02)
+  );
+  background-size: 100% 4px;
 }

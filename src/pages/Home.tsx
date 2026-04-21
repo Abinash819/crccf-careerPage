@@ -1,15 +1,14 @@
 // Import React to build the main page
 import React from 'react';
-// Import Head from Next.js to manage document metadata (SEO)
-import Head from 'next/head';
 // Import all the custom components built for the landing page
-import Navbar from '../components/Navbar';
-import HeroSection from '../components/HeroSection';
-import CareerOptionsGrid from '../components/CareerOptionsGrid';
-import CategorySection from '../components/CategorySection';
-import FeaturedJobs from '../components/FeaturedJobs';
-import ResumeCTA from '../components/ResumeCTA';
-import Footer from '../components/Footer';
+import Navbar from '../../components/Navbar';
+import PartnerMarquee from '../../components/PartnerMarquee';
+import HeroSection from '../../components/HeroSection';
+import CareerOptionsGrid from '../../components/CareerOptionsGrid';
+import CategorySection from '../../components/CategorySection';
+import FeaturedJobs from '../../components/FeaturedJobs';
+import ResumeCTA from '../../components/ResumeCTA';
+import Footer from '../../components/Footer';
 
 /**
  * The main Home component represents the root landing page.
@@ -18,20 +17,16 @@ import Footer from '../components/Footer';
  */
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* SEO metadata for the home page */}
-      <Head>
-        <title>HireWise - Find Your Perfect Career Opportunity</title>
-        <meta name="description" content="Explore thousands of job opportunities, submit your resume, and track your applications with HireWise Career Portal." />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
-
-      {/* Global Navigation Header */}
+    <div className="flex flex-col min-h-screen bg-[#F8FAFC]">
+      {/* Global Navigation Header - Fixed at top */}
       <Navbar />
 
       {/* Main Content Area */}
-      <main className="flex-grow">
+      <main className="flex-grow pt-20"> {/* Offset for h-20 fixed navbar */}
         
+        {/* Government Partnership Indicator - Infinite Scrolling Marquee */}
+        <PartnerMarquee />
+
         {/* Section 1: Hero area with search functionality and branding */}
         <HeroSection />
 
